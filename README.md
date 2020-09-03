@@ -25,11 +25,11 @@
 | image               |  | null: false |
 | item__name          | string | null: false |
 | memo                | text   | null: false |
-| category_id         | string | null: false |
-| item_status_id      | string | null: false |
-| ship_method_id      | string | null: false |
-| ship_city_id        | string | null: false |
-| ship_date_id        | string | null: false |
+| category_id         | integer | null: false |
+| item_status_id      | integer | null: false |
+| ship_method_id      | integer | null: false |
+| ship_city_id        | integer | null: false |
+| ship_date_id        | integer | null: false |
 | price               | integer| null: false |
 | user_id             | references| null: false,foreign_key: true |
 ### Association
