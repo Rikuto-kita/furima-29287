@@ -20,18 +20,18 @@
 
 ## items テーブル
 
-| Column           | Type   | Options     |
-| -----------------| ------ | ----------- |
-| image            |  | null: false |
-| item__name       | string | null: false |
-| memo             | text   | null: false |
+| Column              | Type   | Options     |
+|  -----------------  | ------ | ----------- |
+| image               |  | null: false |
+| item__name          | string | null: false |
+| memo                | text   | null: false |
 | category_id         | string | null: false |
 | item_status_id      | string | null: false |
-発送料| ship_method_id      | string | null: false |
-発送元地域| ship_city_id        | string | null: false |
-発送までの日数| ship_date_id        | string | null: false |
-価格| amount_sold      | integer| null: false |
-| user_id          | references| null: false,foreign_key: true |
+| ship_method_id      | string | null: false |
+| ship_city_id        | string | null: false |
+| ship_date_id        | string | null: false |
+| price               | integer| null: false |
+| user_id             | references| null: false,foreign_key: true |
 ### Association
 belongs_to :user
 has_one :customer
