@@ -4,7 +4,7 @@
 
 | Column           | Type   | Options     |
 | -----------------| ------ | ----------- |
-| NickName         | string | null: false |
+| nickname         | string | null: false |
 | email            | string | null: false |
 | password         | string | null: false |
 | family_name      | string | null: false |
@@ -16,13 +16,11 @@
 
 - has_many :customer
 - has_many :item
-- has_many :comment
 
 ## items テーブル
 
 | Column              | Type   | Options     |
 |  -----------------  | ------ | ----------- |
-| image               |  | null: false |
 | item__name          | string | null: false |
 | memo                | text   | null: false |
 | category_id         | integer | null: false |
@@ -35,7 +33,7 @@
 ### Association
 belongs_to :user
 has_one :customer
-has_many :comment
+
 
 
 ### customersテーブル
@@ -49,23 +47,12 @@ belogs_to :user
 belogs_to :item
 has_one :address
 
-## commentsテーブル
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| text    | string     | null: false |
-| user_id | references | null: false, foreign_key: true |
-| item_id | references | null: false, foreign_key: true |
-
-### Association
-
-belongs_to :item
- belongs_to :user
 
 ## addresses テーブル
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
-| post-code      | string     | null: false |
+| post_code      | string     | null: false |
 | ship_city      | string     | null: false |
 | ship_address   | string     | null: false |          
 | ship_to_address| string     | null: false |  
