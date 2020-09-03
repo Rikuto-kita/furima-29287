@@ -14,14 +14,14 @@
 | birthday         | date   | null: false |
 ### Association
 
-- has_many :customer
-- has_many :item
+- has_many :customers
+- has_many :items
 
 ## items テーブル
 
 | Column              | Type   | Options     |
 |  -----------------  | ------ | ----------- |
-| item__name          | string | null: false |
+| name                | string | null: false |
 | memo                | text   | null: false |
 | category_id         | integer | null: false |
 | item_status_id      | integer | null: false |
@@ -53,10 +53,11 @@ has_one :address
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | post_code      | string     | null: false |
-| ship_city      | string     | null: false |
-| ship_address   | string     | null: false |          
-| ship_to_address| string     | null: false |  
+| prefecture     | string     | null: false |
+| city           | string     | null: false |
+| address        | string     | null: false |          
 | building_name  | string     | 
+| phone_number   | integer    | null: false |   
 | customer_id    | references | null: false, foreign_key: true |
 
 ### Association
