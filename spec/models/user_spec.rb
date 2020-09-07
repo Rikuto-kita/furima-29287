@@ -23,6 +23,12 @@ end
     expect(@user.errors.full_messages).to include("Email can't be blank")
   end
 
+  it "emailに@がないと登録できない" do
+    @user.email = "nemu.jp.com"
+    @user.valid?
+    expect(@user.errors.full_messages).to include("Email is invalid")
+  end
+
   it "passwordが空では登録できないこと" do
     @user.password = nil
     @user.valid?
@@ -61,11 +67,24 @@ end
   expect(@user.errors.full_messages).to include("Family name can't be blank")
   end
 
+  it "family_nameが全角でないと登録出来ない事"do
+  @user.family_name = "ｷﾀ"
+  @user.valid?
+  expect(@user.errors.full_messages).to include("Family name is invalid")
+  end
+
 it "first_nameが空だと登録出来ない事"do
 @user.first_name = nil
 @user.valid?
 expect(@user.errors.full_messages).to include("First name can't be blank")
 end
+
+it "first_nameが全角でないと登録出来ない事"do
+  @user.first_name = "ﾘｸﾄ"
+  @user.valid?
+  expect(@user.errors.full_messages).to include("First name is invalid")
+  end
+
 
 it "family_name_kanaが空だと登録できない事"do
 @user.family_name_kana = nil
@@ -73,11 +92,24 @@ it "family_name_kanaが空だと登録できない事"do
 expect(@user.errors.full_messages).to include("Family name kana can't be blank")
 end
 
+it "family_name_kanaが全角でないと登録出来ない事"do
+  @user.family_name_kana = "ﾘｸﾄ"
+  @user.valid?
+  expect(@user.errors.full_messages).to include("Family name kana is invalid")
+  end
+
 it "first_name_kanaが空だと登録できない事"do
 @user.first_name_kana = nil
 @user.valid?
 expect(@user.errors.full_messages).to include("First name kana can't be blank")
 end
+
+it "first_name_kanaが全角でないと登録出来ない事"do
+  @user.first_name_kana = "ﾘｸﾄ"
+  @user.valid?
+  expect(@user.errors.full_messages).to include("First name kana is invalid")
+  end
+
 
 it "birthdayが空だと登録出来ない事"do
 @user.birthday = nil
