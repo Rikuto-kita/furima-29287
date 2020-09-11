@@ -25,10 +25,24 @@ RSpec.describe Item, type: :model do
     expect(@item.errors.full_messages).to include("Category is not a number")
   end
 
+  it'カテゴリーが---を示すid値だと出品登録できない'do
+    @item.category_id = 1
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Category must be other than 1")
+  end
+  
+
+
   it'item_status_idは必須'do
     @item.item_status_id = nil
     @item.valid?
     expect(@item.errors.full_messages).to include("Item status is not a number")
+  end
+
+  it'商品状態が---を示すid値だと出品登録できない'do
+    @item.item_status_id = 1
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Item status must be other than 1")
   end
 
   it'ship_method_idは必須'do
@@ -37,16 +51,35 @@ RSpec.describe Item, type: :model do
     expect(@item.errors.full_messages).to include("Ship method is not a number")
   end
 
+  it'配送料負担が---を示すid値だと出品登録できない'do
+    @item.ship_method_id = 1
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Ship method must be other than 1")
+  end
+
+
   it'ship_city_idは必須'do
     @item.ship_city_id = nil
     @item.valid?
     expect(@item.errors.full_messages).to include("Ship city is not a number")
   end
 
+  it'発送元地域が---を示すid値だと出品登録できない'do
+    @item.ship_city_id = 0
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Ship city must be other than 0")
+  end
+
   it'ship_date_idは必須'do
     @item.ship_date_id = nil
     @item.valid?
     expect(@item.errors.full_messages).to include("Ship date is not a number")
+  end
+
+  it'発足までの日数が---を示すid値だと出品登録できない'do
+    @item.ship_date_id = 1
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Ship date must be other than 1")
   end
 
   it'priceは必須'do
