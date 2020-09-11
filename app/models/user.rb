@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :items
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -11,7 +12,6 @@ class User < ApplicationRecord
     FAMILY_NAME_KANA = validates :family_name_kana, format: {with: /\A[ァ-ヶー－]+\z/}
     FIRST_NAME_KANA = validates :first_name_kana, format: {with: /\A[ァ-ヶー－]+\z/}
     validates :birthday
-    validates :password, format: {with: /\A[a-z\d]{6,}+\z/i}
-    validates :email, format: {with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
+    validates :email, presence: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   end
 end
