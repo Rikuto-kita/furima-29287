@@ -16,6 +16,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def index
+    @item = Item.all.order("created_at DESC")
+  end
+
   private
 
   def redirect_path
