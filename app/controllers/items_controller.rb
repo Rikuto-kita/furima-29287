@@ -1,6 +1,10 @@
 class ItemsController < ApplicationController
   before_action :redirect_path, except: :index
   before_action :set_item , only: [:show,:edit]
+<<<<<<< HEAD
+=======
+  before_action :set_show , only: [:update,:destroy]
+>>>>>>> 1f04e1a06c5df709831900850fe25a159fa44bdb
   skip_before_action :authenticate_user!
 
 
@@ -28,7 +32,10 @@ class ItemsController < ApplicationController
   end
 
   def update
+<<<<<<< HEAD
     item = Item.find(params[:id])
+=======
+>>>>>>> 1f04e1a06c5df709831900850fe25a159fa44bdb
     if item.update(item_params)
       redirect_to root_path
     else
@@ -37,9 +44,16 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+<<<<<<< HEAD
     item = Item.find(params[:id])
     if item.destroy
       redirect_to root_path
+=======
+    if item.destroy
+      redirect_to root_path
+    else
+      render :show
+>>>>>>> 1f04e1a06c5df709831900850fe25a159fa44bdb
     end
   end
 
@@ -58,4 +72,11 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+<<<<<<< HEAD
+=======
+  def set_show
+    item = Item.find(params[:id])
+  end
+
+>>>>>>> 1f04e1a06c5df709831900850fe25a159fa44bdb
 end
