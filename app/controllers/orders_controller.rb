@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
+  before_action :set_item , only: [:index , :pay_item , :create , :sold]
   before_action :sold
-  before_action :set_item , only: [:index , :pay_item ]
+  
   
 
   def index
@@ -14,7 +15,6 @@ class OrdersController < ApplicationController
       @order.save
       return redirect_to root_path
     else
-      @item = Item.find(params[:item_id])
       render :index
     end
   end
@@ -36,7 +36,6 @@ class OrdersController < ApplicationController
   end
 
   def sold
-    @item = Item.find(params[:item_id])
     if (current_user.id == @item.user_id) || (@item.customer!=nil)
       redirect_to root_path
     end
