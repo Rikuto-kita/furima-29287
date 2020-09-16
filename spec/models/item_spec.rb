@@ -4,6 +4,11 @@ RSpec.describe Item, type: :model do
   describe '#create'do
   before do
     @item = FactoryBot.build(:item)
+    @item.image = fixture_file_upload('test_sample.png')
+  end
+
+  it '全て正しく記述すれば登録できる' do
+    expect(@item).to be_valid
   end
 
   it'imageは必須'do
