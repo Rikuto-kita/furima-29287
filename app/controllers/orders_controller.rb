@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
 
   def sold
     if (current_user.id == @item.user_id) || (@item.customer!=nil)
-      redirect_to root_path
+       redirect_to root_path
     end
   end
 
