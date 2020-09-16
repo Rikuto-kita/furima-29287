@@ -7,10 +7,6 @@ FactoryBot.define do
     building_name{"サンパレオ中川503号室"}
     phone_number{"12312345678"}
     token{"hogehuga"}
-    
-    # after(:build) do |item|
-    #   item.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
-    # end
 
   end
 end
