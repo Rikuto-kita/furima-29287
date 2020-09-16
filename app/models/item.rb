@@ -7,6 +7,7 @@ with_options presence: true do
   validates :price
   validates :name
   validates :memo
+  validates :image
   end
 
   validates :price, numericality: { only_integer: true ,greater_than: 300, less_than:9999999}, format: {with: /\A[0-9]+\z/} 

@@ -6,6 +6,12 @@ RSpec.describe Item, type: :model do
     @item = FactoryBot.build(:item)
   end
 
+  it'imageは必須'do
+  @item.image = nil
+  @item.valid?
+  expect(@item.errors.full_messages).to include("Image can't be blank")
+end
+
 
   it'nameは必須'do
     @item.name = nil
