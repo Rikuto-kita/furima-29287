@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :redirect_path, except: :index
   before_action :set_item , only: [:show,:edit]
+  before_action :redirect_path, except: :index
   skip_before_action :authenticate_user!
 
 
@@ -28,11 +28,11 @@ class ItemsController < ApplicationController
   end
 
   def update
-    item = Item.find(params[:id])
-    if item.update(item_params)
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
       redirect_to root_path
     else
-      render :edit
+      render :edit 
     end
   end
 

@@ -9,6 +9,7 @@ t.integer    :ship_city_id     , null: false
 t.integer    :ship_date_id     , null: false
 t.integer    :ship_method_id     , null: false
 t.integer    :price,null: false
+t.references   :user ,null: false,foreign_key: true
 
       t.timestamps
     end
