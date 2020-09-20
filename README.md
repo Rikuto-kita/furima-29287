@@ -62,5 +62,4 @@ has_one :orders
 
 ### Association
 
-
 belongs_to :customer
