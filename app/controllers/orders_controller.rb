@@ -10,13 +10,14 @@ class OrdersController < ApplicationController
   end
 
   def create
+
     @order = OrderCustomer.new(order_params)
     if @order.valid?
       pay_item
       @order.save
       return redirect_to root_path
     else
-      render :index
+      render 'index'
     end
   end
 

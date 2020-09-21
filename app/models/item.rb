@@ -15,19 +15,19 @@ with_options presence: true do
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   belongs_to_active_hash :category
-  validates :category_id, numericality: { other_than: 1 } 
+  validates :category_id, numericality: { other_than: 1 ,message: "を選択してください" } 
 
   belongs_to_active_hash :item_status
-  validates :item_status_id, numericality: { other_than: 1 } 
+  validates :item_status_id, numericality: { other_than: 1 ,message: "を選択してください"} 
 
   belongs_to_active_hash :ship_city
-  validates :ship_city_id, numericality: { other_than: 0 } 
+  validates :ship_city_id, numericality: { other_than: 0 ,message: "を選択してください"} 
 
   belongs_to_active_hash :ship_date
-  validates :ship_date_id, numericality: { other_than: 1 } 
+  validates :ship_date_id, numericality: { other_than: 1 ,message: "を選択してください"} 
   
   belongs_to_active_hash :ship_method
-  validates :ship_method_id, numericality: { other_than: 1 }
+  validates :ship_method_id, numericality: { other_than: 1 ,message: "を選択してください"}
 
   
 
