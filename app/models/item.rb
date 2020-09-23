@@ -2,7 +2,8 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one :customer
   has_one_attached :image
-
+  has_many :comments
+  
   def self.search(search)
     if search != ""
       Item.where('name LIKE(?)', "%#{search}%")

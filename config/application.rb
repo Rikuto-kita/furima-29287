@@ -11,6 +11,7 @@ module Furima29287
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
+    config.time_zone = 'Tokyo'
     # 日本語の言語設定
    config.i18n.default_locale = :ja
     

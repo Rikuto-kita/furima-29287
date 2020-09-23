@@ -16,6 +16,7 @@
 
 - has_many :customers
 - has_many :items
+- has_many :comennts
 
 ## items テーブル
 
@@ -32,8 +33,9 @@
 | user_id             | references| null: false,foreign_key: true |
 
 ### Association
-belongs_to :user
-has_one :customer
+- belongs_to :user
+- has_one :customer
+- has_many :comennts
 
 
 ### customersテーブル
@@ -43,9 +45,9 @@ has_one :customer
 | item_id          | references| null: false,foreign_key: true |
 
 ### Association
-belogs_to :user
-belogs_to :item
-has_one :orders
+- belongs_to :user
+- belongs_to :item
+- has_one :orders
 
 
 ## orders テーブル
@@ -61,5 +63,16 @@ has_one :orders
 | customer_id    | references | null: false, foreign_key: true |
 
 ### Association
+- belongs_to :customer
 
-belongs_to :customer
+### Coments
+
+| Column           | Type   | Options                            |
+| -----------------| ------ | ---------------------------------- |
+| text             | text   | null: false                        |
+| user_id          | references|  null: false,foreign_key: true  |
+| item_id          | references| null: false,foreign_key: true   |
+
+### Association
+- belongs_to :user
+- belongs_to :item

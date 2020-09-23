@@ -23,10 +23,11 @@ class ItemsController < ApplicationController
 
   def search
     @item = Item.search(params[:keyword])
-   
   end
 
-  def show
+  def show 
+    @comment = Comment.all
+    @comments = @item.comments.includes(:user)
   end
 
   def edit
