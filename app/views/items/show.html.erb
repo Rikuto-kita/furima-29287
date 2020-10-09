@@ -106,7 +106,7 @@
       <p>
       <%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S')%>
       <br>
-      <%=@item.user.nickname %>
+      <%=current_user.nickname %>
       <br>
       <%= comment.text %>
       </p>

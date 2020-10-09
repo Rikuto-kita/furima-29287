@@ -25,6 +25,5 @@ consumer.subscriptions.create("CommentChannel", {
     const newComment = document.getElementById('comments_text');
     comments.insertAdjacentHTML('afterbegin', text);
     newComment.value='';
-    
   }
 });
